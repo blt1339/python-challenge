@@ -27,14 +27,13 @@ with open(csv_file_path, 'r') as csv_file:
 
 
     for row in csv_reader:
-        row_votes = int(row[0])
         row_candidate = row[2]
 
-        total_number_votes = total_number_votes + row_votes
+        total_number_votes += 1
         if row_candidate in votes_by_candidate:
-            votes_by_candidate[row_candidate] += row_votes
+            votes_by_candidate[row_candidate] += 1
         else:
-            votes_by_candidate[row_candidate] = row_votes
+            votes_by_candidate[row_candidate] = 1
 
         if candidate_with_most_votes == None:
             candidate_with_most_votes = row_candidate
@@ -46,12 +45,12 @@ with open(csv_file_path, 'r') as csv_file:
 
 
     print('Election Results')
-    print('---------------------------')
+    print('-------------------------')
     print('Total Votes: {}'.format(total_number_votes))
-    print('---------------------------')
+    print('-------------------------')
 
     for key, key_votes in votes_by_candidate.items():
-        print('{}: {}% ({})'.format(key,round(key_votes/total_number_votes * 100,3),key_votes))
-    print('---------------------------')
+        print('{}: {}% ({})'.format(key,round((key_votes/total_number_votes * 100),3),key_votes))
+    print('-------------------------')
     print('Winner: {}'.format(candidate_with_most_votes))
-    print('---------------------------')
+    print('-------------------------')
