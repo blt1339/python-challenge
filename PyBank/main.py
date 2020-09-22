@@ -7,7 +7,7 @@ csv_file_name = "budget_data.csv"
 results_file_name = "PyBank_Results.txt"
 base_path = path.dirname(__file__)
 csv_file_path = path.abspath(path.join(base_path, "Resources", csv_file_name))
-results_file_path = path.abspath(path.join(base_path,results_file_name))
+results_file_path = path.abspath(path.join(base_path,"Analysis",results_file_name))
 
 # Initialize variables
 no_months = 0
