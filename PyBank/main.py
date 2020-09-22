@@ -7,7 +7,7 @@ csv_file_name = "budget_data.csv"
 results_file_name = "PyBank_Results.txt"
 base_path = path.dirname(__file__)
 csv_file_path = path.abspath(path.join(base_path, "Resources", csv_file_name))
-resultsfile_path = path.abspath(path.join(base_path,results_file_name))
+results_file_path = path.abspath(path.join(base_path,results_file_name))
 
 # Initialize variables
 no_months = 0
@@ -71,7 +71,7 @@ output.append("Greatest Decrease in Profits: {} (${})".format(decrease_pl_month,
 
 
 
-with open(results_file_name, 'w') as results_file:
+with open(results_file_path, 'w') as results_file:
     for output_line in output:
         print(output_line)
         results_file.write(output_line + "\n")
