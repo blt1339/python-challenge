@@ -3,16 +3,17 @@ from statistics import mean
 from os import path
 
 # setup the filepath for the csv file we want to read
-csvfilename = "budget_data.csv"
-#filepath = path.join("..", "Resources", filename)
-basepath = path.dirname(__file__)
-csvfilepath = path.abspath(path.join(basepath, "Resources", csvfilename))
+csv_file_name = "budget_data.csv"
+results_file_name = "PyBank_Results.txt"
+base_path = path.dirname(__file__)
+csv_file_path = path.abspath(path.join(base_path, "Resources", csv_file_name))
+resultsfile_path = path.abspath(path.join(base_path,results_file_name))
 
 # Initialize variables
 no_months = 0
 net_pl_amount = 0
 
-with open(csvfilepath, 'r') as csv_file:
+with open(csv_file_path, 'r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     
     # Go by the header row
@@ -59,10 +60,18 @@ with open(csvfilepath, 'r') as csv_file:
         prev_pl_month = pl_month
         prev_pl_amount = pl_amount
 
-print("Financial Analysis")
-print('------------------')
-print("Total Months: {}".format(no_months))
-print("Total: ${}".format(net_pl_amount))
-print("Average  Change: ${}".format(round(mean(pl_amount_changes),2)))
-print("Greatest Increase in Profits: {} (${})".format(increase_pl_month,increase_pl_amount_change))
-print("Greatest Decrease in Profits: {} (${})".format(decrease_pl_month,decrease_pl_amount_change))
+output = []
+output.append("Financial Analysis")
+output.append('------------------')
+output.append("Total Months: {}".format(no_months))
+output.append("Total: ${}".format(net_pl_amount))
+output.append("Average  Change: ${}".format(round(mean(pl_amount_changes),2)))
+output.append("Greatest Increase in Profits: {} (${})".format(increase_pl_month,increase_pl_amount_change))
+output.append("Greatest Decrease in Profits: {} (${})".format(decrease_pl_month,decrease_pl_amount_change))
+
+
+
+with open(results_file_name, 'w') as results_file:
+    for output_line in output:
+        print(output_line)
+        results_file.write(output_line + "\n")
