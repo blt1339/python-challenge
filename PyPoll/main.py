@@ -43,14 +43,19 @@ with open(csv_file_path, 'r') as csv_file:
                 candidate_with_most_votes = row_candidate
                 most_votes = votes_by_candidate[row_candidate]
 
-
-    print('Election Results')
-    print('-------------------------')
-    print('Total Votes: {}'.format(total_number_votes))
-    print('-------------------------')
+    output = []
+    output.append('Election Results')
+    output.append('-------------------------')
+    output.append('Total Votes: {}'.format(total_number_votes))
+    output.append('-------------------------')
 
     for key, key_votes in votes_by_candidate.items():
-        print('{}: {}% ({})'.format(key,round((key_votes/total_number_votes * 100),3),key_votes))
-    print('-------------------------')
-    print('Winner: {}'.format(candidate_with_most_votes))
-    print('-------------------------')
+        output.append('{}: {:.3f}% ({})'.format(key,round((key_votes/total_number_votes * 100),3),key_votes))
+    output.append('-------------------------')
+    output.append('Winner: {}'.format(candidate_with_most_votes))
+    output.append('-------------------------')
+
+    with open(results_file_path, 'w') as results_file:
+        for output_line in output:
+            print(output_line)
+            results_file.write(output_line + "\n")
