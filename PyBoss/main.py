@@ -10,8 +10,8 @@ csv_file_name = "employee_data.csv"
 csv_file_path = path.abspath(path.join(base_path, "Resources", csv_file_name))
 
 # Setup the filepath for the results file we want to read
-results_file_name = "PyBoss_Export.csv"
-results_file_path = path.abspath(path.join(base_path,"Analysis",results_file_name))
+export_file_name = "PyBoss_Export.csv"
+export_file_path = path.abspath(path.join(base_path,"Analysis",export_file_name))
 
 # Setup a dictionary to translate to 2 character states
 us_state_abbrev = {
@@ -95,4 +95,7 @@ with open(csv_file_path, 'r') as csv_file:
         # Add converted data to output_data
         output_data.append([emp_id,first_name,last_name,output_dob,output_ssn,state_abbrev])
 
-    print(output_data)
+# An finally write out the converted data
+with open(export_file_path, 'w') as export_file:
+    csv_writer = csv.writer(export_file)
+    csv_writer.writerows(output_data)
