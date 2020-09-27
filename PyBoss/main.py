@@ -66,17 +66,19 @@ us_state_abbrev = {
     'Wisconsin': 'WI',
     'Wyoming': 'WY',
 }
+# Initialize list to store converted data
+output_data = []
 
-# Initialize variables
-no_months = 0
-net_pl_amount = 0
+# Add a row of headings for the first row of our list to store converted data
+output_data.append(["Emp ID","First Name","Last Name","DOB","SSN","State"])
+
 
 # Open the csv file
 with open(csv_file_path, 'r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     
     # Go by the header row
-    next(csv_reader)
+    headers = next(csv_reader)
 
     # Loop through the rows of data
     for row in csv_reader:
@@ -89,4 +91,8 @@ with open(csv_file_path, 'r') as csv_file:
         output_ssn = "***-**-" + ssn.split('-')[2]
         state = row[4]
         state_abbrev = us_state_abbrev[state]
-        print(emp_id,name,first_name,last_name,dob,output_dob,ssn,output_ssn,state,state_abbrev)
+
+        # Add converted data to output_data
+        output_data.append([emp_id,first_name,last_name,output_dob,output_ssn,state_abbrev])
+
+    print(output_data)
