@@ -116,7 +116,7 @@ def file_write():
     '''
 
     # Write out the converted data
-    with open(export_file_path, 'w') as export_file:
+    with open(export_file_path, 'w', newline='') as export_file:
         csv_writer = csv.writer(export_file)
         csv_writer.writerows(output_data)
 
