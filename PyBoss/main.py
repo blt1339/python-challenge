@@ -78,7 +78,6 @@ def file_read():
     Read the csv file that is setup in csv_file_path
     '''
 
-
     # Open the csv file
     with open(csv_file_path, 'r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')

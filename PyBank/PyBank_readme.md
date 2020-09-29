@@ -31,7 +31,7 @@
 
 
 ### Resources
-budget_data.csv is in the Resources directory is the data that was utilized in the execution of main.py in the PyBank directory.
+budget_data.csv is in the Resources directory and is the data that was utilized in the execution of main.py in the PyBank directory.
 
 
 ### Process

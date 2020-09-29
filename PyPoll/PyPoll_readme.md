@@ -35,7 +35,7 @@
 * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
 ### Resources
-election_data.csv is in the Resources directory is the data that was utilized in the execution of main.py in the PyPoll directory.
+election_data.csv is in the Resources directory and is the data that was utilized in the execution of main.py in the PyPoll directory.
 
 ### Process
 The program main.py sets up access to the election_data.csv file and loops through the file collecting the following inforamtion:
