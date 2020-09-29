@@ -35,9 +35,9 @@ budget_data.csv is in the Resources directory and is the data that was utilized 
 
 
 ### Process
-The program main.py sets up access to the budget_data.csv file and loops through the file collecting the following inforamtion:
+The program main.py sets up access to the budget_data.csv file and loops through the file collecting the following information:
 * The number of months is stored in the variable no_months and is increased each loop through the data.
-* The total profit and loss accross all of the data is stored in the variable net_pl_amount.
+* The total profit and loss across all of the data is stored in the variable net_pl_amount.
 * The previous month and the previous profit and loss amount are stored in variables prev_pl_month and prev_pl_amount (initially set to None).  This allows for a comparision between months except the first loop through the data (when the values are None).
 * The greatest increase of profit and loss is stored in the variables increase_pl_month and increase_pl_amount_change with both intially set to None.
 * The greatest decrease of profit and loss is stored in the variables decrease_pl_month and increase_pl_amount_change with both intially set to None.

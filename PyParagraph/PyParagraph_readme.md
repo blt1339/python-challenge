@@ -35,7 +35,7 @@ Average Sentence Length: 24.0
 ```
 
 ### Resources
-Two files were provided called paragraph_1.txt and paragraph_2.txt in the raw_data directory.    Additionally in the homework verbiage, a third paragraph was provided with the expected output.   I put this additional paragraph in the same directory using a name of paragraph_3.txt.
+Two files were provided named paragraph_1.txt and paragraph_2.txt in the raw_data directory.    Additionally in the homework verbiage, a third paragraph was provided with the expected output.   I put this additional paragraph in the same directory using a name of paragraph_3.txt.
 
 #### paragraph_1.txt
 ```
@@ -69,13 +69,13 @@ Stalmaster, 88, credited with securing career-defining roles for actors such as 
 ```
 
 ### Process
-The program main.py sets up access to thethe raw_data directory under PyParagraph and loops all of the files in this directory and performs the analysis for all files in that directory:
-* For each file main.py reads in the file and opens a file for output that is PyParagraph_Results_ plus the file name being processed.
-* The variable list_lines contains the paragraph fromt he file split into a first try of by sentence.   It was noticed that one of the files has an initial that is causing a sentence to be split in the wrong place.   Upon research I realized that Mr., Mrs., Miss, Ms. would all cause the same problem.   the split files are looped through a to check for this situation.   If the end of a sentence ends in one of the above titles than the line is combined with the next line.   And if the sentences ends in a single letter and a period and the prior word is capitalized, then the program assumes we are dealing with an initial and puts the sentence together with the next sentence.
-* Once we believe we have a good list of sentences, the process loops through each sentence and splits by word.   Since one of the calculations we are going to do is word length, I replaced \n, ., !, ? with nothing so that the word length does not get artifically increased due to punctutation.
-* Additionally, on one of the paragraphs, my program got a different word count than Micrsoft Word did and it was because >1 was being counted as 1 word in my program but 2 in Microsoft Word.   So I also replaced < and > to <space and >space.
-* The variables line_words_list and line_word_counts were created for for each sentence
-* Additionally variables word_list and word_letter_count was creates for each word in all sentences
+The program main.py sets up access to the raw_data directory under PyParagraph and loops all of the files in this directory and performs the analysis for all files in that directory:
+* For each file the process reads in the file and opens a file for output that is PyParagraph_Results_ plus the file name being processed.
+* The variable list_lines contains the paragraph from the file split into a first try of by sentence.   It was noticed that one of the files has an initial that is causing a sentence to be split in the wrong place.   Upon research, I realized that Mr., Mrs., Miss, Ms. would all cause the same problem.   The split files are looped through to check for this situation.   If the end of a sentence contains one of the above titles than the line is combined with the next line.   And if the sentences ends in a single letter and a period and the prior word is capitalized, then the program assumes we are dealing with an initial and puts the sentence together with the next sentence.
+* Once we believe we have a good list of sentences, the process loops through each sentence and splits by word.   Since one of the calculations we are going to do is word length, All occurances of  \n, ., !, ? are replaced with nothing so that the word length does not get artifically increased due to punctutation.
+* Additionally, on one of the paragraphs, my program got a different word count than Micrsoft Word did and it was because >1 was being counted as 1 word in my program but 2 in Microsoft Word.   So I also replaced < and > to <space and >space before processing the word sentence.
+* The variables line_words_list and line_word_counts were created for for each sentence.  The variable line_words_list contains a list of the words for each sentence and line_word_counts contains a list of word counts for each sentence.
+* Additionally variables word_list and word_letter_count are created for each word in all sentences
 * Once the loop through the data is complete, the variable output is created with all of the summary information required.
 * The final task performed is to output the data in the variable output to the screen and write it to the file /Analysis/PyParagraph_Results_<file name>.txt.
 
