@@ -32,3 +32,22 @@
 
 ### Resources
 budget_data.csv is in the Resources directory is the data that was utilized in the execution of main.py in the PyBank directory.
+
+
+### Process
+The program main.py sets up access to the budget_data.csv file and loops through the file collecting the following inforamtion:
+* The number of months is stored in the variable no_months and is increased each loop through the data.
+* The total profit and loss accross all of the data is stored in the variable net_pl_amount.
+* The previous month and the previous profit and loss amount are stored in variables prev_pl_month and prev_pl_amount (initially set to None).  This allows for a comparision between months except the first loop through the data (when the values are None).
+* The greatest increase of profit and loss is stored in the variables increase_pl_month and increase_pl_amount_change with both intially set to None.
+* The greatest decrease of profit and loss is stored in the variables decrease_pl_month and increase_pl_amount_change with both intially set to None.
+* Once the loop through the data is complete, the variable output is created with all of the summary information required.
+* The final task performed is to output the data in the variable output to the screen and write it to the file /Analysis/PyBank_Results.txt.
+
+### Output
+
+#### Screen Output
+![Screen_Output](/PyBank/Analysis/PyBank_Results_Screen.jpg)
+
+#### File Output
+![File_Output](/PyBank/Analysis/PyBank_Results_File.jpg)

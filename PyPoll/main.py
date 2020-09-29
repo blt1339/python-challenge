@@ -14,9 +14,11 @@ csv_file_path = path.abspath(path.join(base_path, "Resources", csv_file_name))
 results_file_name = "PyBank_Results.txt"
 results_file_path = path.abspath(path.join(base_path,"Analysis",results_file_name))
 
-# Initialize variables
+# Initialize loop variables
 total_number_votes = 0
 votes_by_candidate = {}
+winning_candidate = None
+winning_votes = None
 
 # Open the csv file
 with open(csv_file_path, 'r') as csv_file:
@@ -25,10 +27,6 @@ with open(csv_file_path, 'r') as csv_file:
     # Go by the header row
     next(csv_reader)
 
-    # Initialize loop variables
-    candidate_with_most_votes = None
-    most_votes = None
- 
     # Loop through the rows of data
     for row in csv_reader:
         # Grab the candidate the vote is for
@@ -44,13 +42,13 @@ with open(csv_file_path, 'r') as csv_file:
             votes_by_candidate[row_candidate] = 1
 
         # Update the candidate with the most votes
-        if candidate_with_most_votes == None:
-            candidate_with_most_votes = row_candidate
-            most_votes = votes_by_candidate[row_candidate]
+        if winning_candidate == None:
+            winning_candidate = row_candidate
+            winning_votes = votes_by_candidate[row_candidate]
         else:
-            if most_votes > votes_by_candidate[row_candidate]:
-                candidate_with_most_votes = row_candidate
-                most_votes = votes_by_candidate[row_candidate]
+            if winning_votes > votes_by_candidate[row_candidate]:
+                winning_candidate = row_candidate
+                winning_votes = votes_by_candidate[row_candidate]
 
 # Update output with the calculated vote information
 output = []
@@ -65,7 +63,7 @@ for key, key_votes in votes_by_candidate.items():
 
 # Add the winning Candidate to the output    
 output.append('-------------------------')
-output.append('Winner: {}'.format(candidate_with_most_votes))
+output.append('Winner: {}'.format(winning_candidate))
 output.append('-------------------------')
 
 # And finally output the information to the screen and the results file

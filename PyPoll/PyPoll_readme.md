@@ -36,3 +36,20 @@
 
 ### Resources
 election_data.csv is in the Resources directory is the data that was utilized in the execution of main.py in the PyPoll directory.
+
+### Process
+The program main.py sets up access to the election_data.csv file and loops through the file collecting the following inforamtion:
+* The total number of votes is stored in the variable total_number_votes and is increased each loop through the data.
+* The total votes per candidate is stored in the dictionary votes_by_candidate with a key of the candidates's last name.  Each time a specific candidate is encountered, the vote count for that candidate is increased by 1. 
+* The last name of the row of data as we loop through the data is stored in the variable row_candidate.
+* In order to keep track of the winner, the variables winning_candidate and winning_votes is utilzed.   Both variables start out as None.
+* Once the loop through the data is complete, the variable output is created with all of the summary information required.
+* The final task performed is to output the data in the variable output to the screen and write it to the file /Analysis/PyBank_Results.txt.
+
+### Output
+
+#### Screen Output
+![Screen_Output](/PyPoll/Analysis/PyPoll_Results_Screen.jpg)
+
+#### File Output
+![File_Output](/PyPoll/Analysis/PyPoll_Results_File.jpg)
